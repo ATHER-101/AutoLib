@@ -1,6 +1,24 @@
 {
-    "version":2,
-    "name":"autolib_backend",
-    "builds": [{"src":"index.mjs","use":"@vercel/node"}],
-    "routes": [{"src":"/(.*)","dest":"/index.mjs"}]
+    "version": 2,
+    "name": "autolib_backend",
+    "builds": [
+        {
+            "src": "index.mjs",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "build/**/*",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "/index.mjs"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.mjs"
+        }
+    ]
 }
